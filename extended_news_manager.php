@@ -611,57 +611,57 @@ function settings(){
  * @action Extended News Manager Settings Save
  */
 function settings_save(){
-	$menu_title = htmlentities($_POST['menu_title'], ENT_QUOTES, 'UTF-8');
+	$menu_title = $_POST['menu_title'];
 	if(empty( $menu_title)){
 		$menu_title = 'Latest News';
 	}
 	
-	$menu_title_lenght = htmlentities($_POST['menu_title_lenght'], ENT_QUOTES, 'UTF-8');
+	$menu_title_lenght = (int)$_POST['menu_title_lenght'];
 	if(empty( $menu_title_lenght)){
 		$menu_title_lenght = '30';
 	}
 	
-	$menu_content_lenght = htmlentities($_POST['menu_content_lenght'], ENT_QUOTES, 'UTF-8');
+	$menu_content_lenght = (int)$_POST['menu_content_lenght'];
 	if(empty( $menu_content_lenght)){
 		$menu_content_lenght = '100';
 	}
 	
-	$menu_man = htmlentities($_POST['menu_man'], ENT_QUOTES, 'UTF-8');
+	$menu_man = $_POST['menu_man'];
 	if(empty( $menu_man)){
 		$menu_man = 'warp';
 	}
 	
-	$menu_news_num = htmlentities($_POST['menu_news_num'], ENT_QUOTES, 'UTF-8');
+	$menu_news_num = (int)$_POST['menu_news_num'];
 	if(empty( $menu_news_num)){
 		$menu_news_num = '5';
 	}
 	
-	$news_page_num = htmlentities($_POST['news_page_num'], ENT_QUOTES, 'UTF-8');
+	$news_page_num = (int)$_POST['news_page_num'];
 	if(empty( $news_page_num)){
 		$news_page_num = '5';
 	}
-	$navigation_type = htmlentities($_POST['navigation_type'], ENT_QUOTES, 'UTF-8');
+	$navigation_type = $_POST['navigation_type'];
 	if(empty( $navigation_type)){
 		$navigation_type = 'default';
 	}
 	
-	$news_page = htmlentities($_POST['news_page'], ENT_QUOTES, 'UTF-8');
+	$news_page = $_POST['news_page'];
 	if(empty( $news_page)){
 		$news_page = 'news';
 	}
 	
 	// ### added condition isset($_POST['external_comments'])
-	$external_comments =  (isset($_POST['external_comments'])) ? htmlentities($_POST['external_comments'], ENT_QUOTES, 'UTF-8') : "";
+	$external_comments =  (isset($_POST['external_comments'])) ? $_POST['external_comments'] : "";
 	if(empty( $external_comments)){
 		$new_page = 'off';
 	}
 	
-	$feed_title = htmlentities($_POST['feed_title'], ENT_QUOTES, 'UTF-8');
+	$feed_title = $_POST['feed_title'];
 	if(empty( $feed_title)){
 		$feed_title = SITE_NAME;
 	}
 	
-	$feed_description = htmlentities($_POST['feed_description'], ENT_QUOTES, 'UTF-8');
+	$feed_description = $_POST['feed_description'];
 	if(empty( $feed_description)){
 		$feed_description = get_site_name();
 	}
@@ -671,34 +671,34 @@ function settings_save(){
 		$feed_image =  SITE_URL . "data/uploads/site_logo.jpg";
 	}
 	
-	$feed_language = htmlentities($_POST['feed_language'], ENT_QUOTES, 'UTF-8');
+	$feed_language = $_POST['feed_language'];
 	if(empty( $feed_language)){
 		$feed_language  = "en-us";
 	}
-	$feed_encoding = htmlentities($_POST['feed_encoding'], ENT_QUOTES, 'UTF-8');
+	$feed_encoding = $_POST['feed_encoding'];
 	if(empty( $feed_encoding)){
 		$feed_encoding  = "UTF-8";
 	}
 	
-	$feed_num = htmlentities($_POST['feed_num'], ENT_QUOTES, 'UTF-8');
+	$feed_num = (int)$_POST['feed_num'];
 	if(empty( $feed_num)){
 		$feed_encoding  = 5;
 
 	}
-	$feed_generator = htmlentities($_POST['feed_generator'], ENT_QUOTES, 'UTF-8');
+	$feed_generator = $_POST['feed_generator'];
 	if(empty( $feed_generator)){
 		$feed_generator = "getsimple_rss_generator";
 	}
 	
-	$feed_icon = htmlentities($_POST['feed_icon'], ENT_QUOTES, 'UTF-8');
+	$feed_icon = $_POST['feed_icon'];
 	if(empty( $feed_icon)){
 		$feed_icon =  SITE_URL . "plugins/extended_news_manager/icons/rss_feed.gif";
 	}
 	// ### added condition isset($_POST['feed_enable'])
-  	$feed_enable = (isset($_POST['feed_enable'])) ? htmlentities($_POST['feed_enable'], ENT_QUOTES, 'UTF-8') : "";
+  	$feed_enable = (isset($_POST['feed_enable'])) ? $_POST['feed_enable'] : "";
   	
 	// ### added $_POST['feed_by_date']
-  	$feed_by_date = (isset($_POST['feed_by_date'])) ? htmlentities($_POST['feed_by_date'], ENT_QUOTES, 'UTF-8') : "";
+  	$feed_by_date = (isset($_POST['feed_by_date'])) ? $_POST['feed_by_date'] : "";
 	if($feed_by_date == "on") {
 		if(add_datestamp()){
 		echo '<div class="updated">', i18n_r('extended_news_manager/STAMP_CONFIRM'), '</div>';
